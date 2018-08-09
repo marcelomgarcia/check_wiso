@@ -5,7 +5,7 @@
 # A basic documentation can be found in 
 # /root/marcelo/bin/wiso/check_wiso.md
 # 
-# Marcelo Garcia (marcelo.garcia@emea.nec.com)
+# Marcelo Garcia 
 # May/2018.
 #
 
@@ -84,10 +84,10 @@ def send_notification(email_info):
 
     msg = MIMEText(email_info['message'])
     msg['Subject'] = email_info['Subject']
-    msg['From'] = 'wiso@' + email_info['From'] + '.dwd.de'
+    msg['From'] = 'wiso@' + email_info['From'] + '.mysite.com'
     msg['To'] = email_info['To']
     s = smtplib.SMTP('localhost')
-    dummy = s.sendmail('wiso@' + email_info['From'] + '.dwd.de', \
+    dummy = s.sendmail('wiso@' + email_info['From'] + '.mysite.com', \
                        [email_info['To']], msg.as_string())
     # return nothing.
     return
@@ -190,9 +190,7 @@ if __name__ == "__main__":
         fout.close()
         print "Wiso {0} master updated!".format(wiso_cluster)
         # Send notification
-        #notif_master_change(master_cfg, master_pcs, 'mss-service@dwd.de')
-        notif_master_change(master_cfg, master_pcs, 'dwdos@hpce.nec.com')
-        notif_master_change(master_cfg, master_pcs, 'marcelo.garcia@emea.nec.com')
+        notif_master_change(master_cfg, master_pcs, 'dwdos@mysite.com')
         sys.exit(STATE_WARNING)
     else:
         print "Masters OK."
