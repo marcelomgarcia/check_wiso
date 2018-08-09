@@ -174,9 +174,7 @@ if __name__ == "__main__":
             # for 4 times, since the 'while' checks for greater than 4.
             if pcs_counter > 5:
                 # send notification...
-                notif_no_pcs_master(master_cfg, 'marcelo.garcia@emea.nec.com')
-                notif_no_pcs_master(master_cfg, 'dwdos@hpce.nec.com')
-                #notif_no_pcs_master(master_cfg, 'mss-service@dwd.de')
+                notif_no_pcs_master(master_cfg, 'marcelomgarcia')
                 # and abort script.
                 sys.exit(STATE_CRITICAL)
             else:
