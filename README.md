@@ -80,3 +80,10 @@ The script will send notification by email in 2 circunstances:
 * when there is no master returned by the pcs command.
 
 ## Crontab
+
+The check is done by an entry in the `crontab`:
+
+```
+*/2 * * * * /maint/nagios/sbin/check_wiso_master.py -c mst > /root/marcelo/logs/mst.log 2>&1
+*/2 * * * * /maint/nagios/sbin/check_wiso_master.py -c mss > /root/marcelo/logs/mss.log 2>&1
+```
